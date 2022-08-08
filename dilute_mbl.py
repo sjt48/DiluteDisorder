@@ -41,11 +41,12 @@ def level_stat(levels):
 
 def ED(n,J0,times,rep,d,delta,p,dis_type='random'):
 
+        np.random.seed()
         if dis_type == 'random':
-            hlist = [np.random.choice([1.0,d],p=[1-p,p]) for i in range(n)]
+            hlist = [np.random.choice([1.0,np.random.uniform(-d,d)],p=[1-p,p]) for i in range(n)]
             folder = "data"
         else:
-            hlist = [np.random.choice([1.0,np.random.uniform(-d,d)],p=[1-p,p]) for i in range(n)]
+            hlist = [np.random.choice([1.0,d],p=[1-p,p]) for i in range(n)]
             folder = "data2"
 
         h = [[hlist[i],i] for i in range(n)]
